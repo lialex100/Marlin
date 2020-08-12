@@ -40,12 +40,10 @@
 #define DEFAULT_SOURCE_CODE_URL "https://github.com/Ultimaker/Marlin"
 #define BOARD_NAME              "Ultimaker"
 
-#define LARGE_FLASH true
-
 //
 // Servos
 //
-#define SERVO0_PIN         13 // untested
+#define SERVO0_PIN         11
 
 //
 // Limit Switches
@@ -101,7 +99,9 @@
 #define HEATER_1_PIN        3
 #define HEATER_BED_PIN      4
 
-#define FAN_PIN             7
+#ifndef FAN_PIN
+  #define FAN_PIN           7
+#endif
 
 //
 // Misc. Functions
@@ -109,7 +109,7 @@
 #define SDSS               53
 #define LED_PIN            13
 #define PS_ON_PIN          12
-#define SUICIDE_PIN        54  // PIN that has to be turned on right after start, to keep power flowing.
+#define SUICIDE_PIN        54   // PIN that has to be turned on right after start, to keep power flowing.
 #define CASE_LIGHT_PIN      8
 
 //
@@ -121,12 +121,12 @@
 
   #if ENABLED(NEWPANEL)
 
-    #define LCD_PINS_RS 20
+    #define LCD_PINS_RS    20
     #define LCD_PINS_ENABLE 17
-    #define LCD_PINS_D4 16
-    #define LCD_PINS_D5 21
-    #define LCD_PINS_D6 5
-    #define LCD_PINS_D7 6
+    #define LCD_PINS_D4    16
+    #define LCD_PINS_D5    21
+    #define LCD_PINS_D6     5
+    #define LCD_PINS_D7     6
 
     // buttons are directly attached
     #define BTN_EN1 40
@@ -159,6 +159,6 @@
 //
 // M3/M4/M5 - Spindle/Laser Control
 //
-#define SPINDLE_LASER_PWM_PIN     9  // MUST BE HARDWARE PWM
-#define SPINDLE_LASER_ENABLE_PIN 10  // Pin should have a pullup!
-#define SPINDLE_DIR_PIN          11  // use the EXP3 PWM header
+#define SPINDLE_LASER_PWM_PIN     9   // MUST BE HARDWARE PWM
+#define SPINDLE_LASER_ENABLE_PIN 10   // Pin should have a pullup!
+#define SPINDLE_DIR_PIN          11   // use the EXP3 PWM header
